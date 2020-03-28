@@ -13,7 +13,7 @@
 
  <import resource="persistence-config.xml"/>
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
-	
+	<context:property-placeholder location="classpath:application.properties" />
  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
 <property value="/WEB-INF/view/" name="prefix"/>
