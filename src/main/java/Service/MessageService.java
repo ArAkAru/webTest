@@ -6,7 +6,7 @@ import java.util.Optional;
 import Entity.Message;
 
 public interface MessageService {
-	Message addMes(Message mes);
+    Message addMes(Message mes);
     void delete(Long id);
     Optional<Message> findId(Long id);
     List<Message> getAll();
