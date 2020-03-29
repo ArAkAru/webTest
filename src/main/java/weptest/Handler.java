@@ -25,36 +25,19 @@ public class Handler {
 	public Handler() {
 		
 	}
-//	@RequestMapping
-//	public String showPage(HttpServletRequest req,Model model)
-//	{
-//		
-//		return "main-menu";    
-//    
-//	}
-//	@PostMapping
-//    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
-//		
-//		
-//		Message mes= new Message(text,tag);
-//		messageService.addMes(mes);
-//		
-//		
-//		
-//
-//        return "main-menu";
-//    }
-	@RequestMapping("mail-form")
+
+	@RequestMapping
 	public String showPage()
 	{
 		
 		return "mail";    
     
 	}
-	@PostMapping("mail-form")
-	public String sendMail(@RequestParam String mail) throws MessagingException {
-		System.out.println(mail);
-		mailSender.send(mail, "Test mail from ArAkAru", "Howdy");
+	@PostMapping
+	public String sendMail(@RequestParam String mail,@RequestParam String head,@RequestParam String text) throws MessagingException {
+		Message mes= new Message(text,head,mail);
+		messageService.addMes(mes);
+		mailSender.send(mail, head, text);
 		return "mail";
 			
 	}

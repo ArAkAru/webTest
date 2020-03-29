@@ -17,17 +17,20 @@ public class Message {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @Column(name="head")
+    private String head;
     @Column(name="textMes")
     private String text;
-    @Column(name="tag")
-    private String tag;
-
+    @Column(name="mail")
+    private String mail;
+    
     public Message() {
     }
 
-    public Message(String text, String tag) {
+    public Message(String text, String head,String mail) {
         this.text = text;
-        this.tag = tag;
+        this.head = head;
+        this.mail = mail;
     }
 
     public void setText(String text) {
@@ -46,11 +49,19 @@ public class Message {
         this.id = id;
     }
 
-    public String getTag() {
-        return tag;
+    public String getHead() {
+        return head;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setHead(String tag) {
+        this.head = tag;
     }
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 }
